@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
 
+List<String> list = ['sanumang'];
+
+var devices = ['sanumang'];
 void main() => runApp(MyApp());
+
+bool isNoble(int atomicNumber) {
+  return 1 == 2;
+}
+
+/**
+ * 在[]中包装一组函数参数，将它们标记为可选位置参数:
+ */
+String say(String from, String msg, [String device]) {
+  var result = '$from says $msg';
+  if (device != null) {
+    result = '$result with a $device';
+  }
+  return result;
+}
+
+
+bool isBig() => 1 > 2;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Demo+${isNoble(1)}',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,7 +41,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter '),
     );
   }
 }
@@ -89,8 +110,15 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Text(
+              ' isNoble=>${isNoble(1)} isBig=>${isBig()} ' +
+                  say("monotonewang", 'hello', 'sanumang'),
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18, color: Colors.blue),
+            ),
+            Text('${devices.length} ${enableFlags(bold:true,hidden:true)}'),
             Text(
               'You have pushed the button this many times:',
             ),
@@ -108,4 +136,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  String enableFlags({bool bold=false,bool hidden=false}){
+  return '${bold} setValue ${hidden}';
+}
+
 }

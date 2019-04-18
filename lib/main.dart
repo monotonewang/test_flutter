@@ -1,27 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
+import 'package:test_flutter/myfuncation.dart';
 
+//声明list
 List<String> list = ['sanumang'];
-
 var devices = ['sanumang'];
+
 void main() => runApp(MyApp());
 
-bool isNoble(int atomicNumber) {
-  return 1 == 2;
-}
-
-/**
- * 在[]中包装一组函数参数，将它们标记为可选位置参数:
- */
-String say(String from, String msg, [String device]) {
-  var result = '$from says $msg';
-  if (device != null) {
-    result = '$result with a $device';
-  }
-  return result;
-}
-
-
-bool isBig() => 1 > 2;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -66,6 +52,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _selectedIndex = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -112,8 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            RandomWords(),
             Text(
-              ' isNoble=>${isNoble(1)} isBig=>${isBig()} ' +
+              "test_method->"+
+              ' isNoble=>${isNoble(1)} \n isBig=>${isBig()} ' +
                   say("monotonewang", 'hello', 'sanumang'),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18, color: Colors.blue),
@@ -134,11 +123,47 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+        bottomNavigationBar: BottomNavigationBar(
+            onTap: _onItemTapped,
+            fixedColor: Colors.red,
+            currentIndex: _selectedIndex,
+            items: [
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.mail), title: new Text('mail')),
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.home), title: new Text('home')),
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.person), title: new Text('person'))
+            ],
+          ),
     );
   }
 
-  String enableFlags({bool bold=false,bool hidden=false}){
-  return '${bold} setValue ${hidden}';
+  void _onItemTapped(int index) {
+    setState(() {
+      this._selectedIndex = index;
+      print("xxxxxx" + index.toString());
+      // final scaffold = Scaffold.of(context);
+      // scaffold.showSnackBar(SnackBar(
+      //   content: Text("xx" + this._selectedIndex.toString()),
+      // ));
+    });
+  }
+
 }
 
+class RandomWords extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new RandomWordsState();
+  }  
+}
+
+class RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
 }

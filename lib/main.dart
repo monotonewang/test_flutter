@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:test_flutter/classes/Point.dart';
 import 'package:test_flutter/myfuncation.dart';
+import 'package:test_flutter/page/first_page.dart';
+import 'package:test_flutter/page/second_page.dart';
+import 'package:test_flutter/page/third_page.dart';
+import 'package:toast/toast.dart';
+// flutter packages get
 
 //声明list
 List<String> list = ['sanumang'];
-var devices = ['sanumang'];
+
 
 void main() => runApp(MyApp());
+
 
 
 class MyApp extends StatelessWidget {
@@ -26,8 +33,9 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        primaryColor: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter '),
+      home: MyHomePage(title: 'Flutter_Test '),
     );
   }
 }
@@ -50,9 +58,20 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
+  int _currentIndex = 0;
   int _counter = 0;
-  int _selectedIndex = 0;
+
+  TabController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = new TabController(
+      length: 3,
+      vsync: this,
+    );
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -78,70 +97,49 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.satellite),
+            onPressed: _onPressSaved,
+          )
+        ],
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            RandomWords(),
-            Text(
-              "test_method->"+
-              ' isNoble=>${isNoble(1)} \n isBig=>${isBig()} ' +
-                  say("monotonewang", 'hello', 'sanumang'),
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 18, color: Colors.blue),
-            ),
-            Text('${devices.length} ${enableFlags(bold:true,hidden:true)}'),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+
+      body: new TabBarView(
+        children: <Widget>[
+          new first_page(),
+          new second_page(),
+          new third_page()
+        ],
+        controller: _controller,
+        physics: NeverScrollableScrollPhysics(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-        bottomNavigationBar: BottomNavigationBar(
-            onTap: _onItemTapped,
-            fixedColor: Colors.red,
-            currentIndex: _selectedIndex,
-            items: [
-              BottomNavigationBarItem(
-                  icon: new Icon(Icons.mail), title: new Text('mail')),
-              BottomNavigationBarItem(
-                  icon: new Icon(Icons.home), title: new Text('home')),
-              BottomNavigationBarItem(
-                  icon: new Icon(Icons.person), title: new Text('person'))
-            ],
-          ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _onItemTapped,
+        fixedColor: Colors.red,
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+              icon: new Icon(Icons.mail), title: new Text('mail')),
+          BottomNavigationBarItem(
+              icon: new Icon(Icons.home), title: new Text('home')),
+          BottomNavigationBarItem(
+              icon: new Icon(Icons.person), title: new Text('person'))
+        ],
+      ),
     );
   }
 
   void _onItemTapped(int index) {
     setState(() {
-      this._selectedIndex = index;
+      this._currentIndex = index;
+      _controller.index = index;
+
       print("xxxxxx" + index.toString());
       // final scaffold = Scaffold.of(context);
       // scaffold.showSnackBar(SnackBar(
@@ -150,20 +148,44 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-}
+  Set<WordPair> _saved = Set<WordPair>();
 
-class RandomWords extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return new RandomWordsState();
-  }  
-}
+  void _onPressSaved() {
+    if (_saved == null || _saved.isEmpty) {
+      _saved.add(WordPair.random());
+      _saved.add(WordPair.random());
+      _saved.add(WordPair.random());
+      _saved.add(WordPair.random());
+      _saved.add(WordPair.random());
+    }
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        // Add 20 lines from here...
+        builder: (BuildContext context) {
+          final Iterable<ListTile> tiles = _saved.map(
+            (WordPair pair) {
+              return ListTile(
+                title: Text(
+                  pair.asPascalCase,
+                  style: TextStyle(fontSize: 18.0),
+                ),
+              );
+            },
+          );
+          final List<Widget> divided = ListTile.divideTiles(
+            context: context,
+            tiles: tiles,
+          ).toList();
 
-class RandomWordsState extends State<RandomWords> {
-  @override
-  Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-    return Text(wordPair.asPascalCase);
+          return Scaffold(
+            // Add 6 lines from here...
+            appBar: AppBar(
+              title: Text('Saved Suggestions'),
+            ),
+            body: ListView(children: divided),
+          );
+        },
+      ), // ... to here.
+    );
   }
 }

@@ -11,8 +11,44 @@ class first_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
+     appBar: AppBar(
+      title: Builder(
+      builder: (BuildContext context) {
+        return GestureDetector( onTap: (){
+           Toast.show("xxxx", context, duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+        },child:Row(
+              children: <Widget>[
+                Text('杭州'),
+                Icon(Icons.expand_more),
+              ],
+            ));   
+      },
+    
+  ),
+      automaticallyImplyLeading: true,
+ 
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.add_alert),
+          tooltip: 'Show Snackbar',
+          onPressed: () {
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.navigate_next),
+          tooltip: 'Next page',
+          onPressed: () {
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.navigate_next),
+          tooltip: 'Next page',
+          onPressed: () {
+          },
+        ),
+      ],
+    ),
       body: Center(
         child: Column(
           // Column is also layout widget. It takes a list of children and

@@ -4,7 +4,7 @@ import 'package:test_flutter/classes/Point.dart';
 import 'package:test_flutter/myfuncation.dart';
 import 'package:test_flutter/page/first_page.dart';
 import 'package:test_flutter/page/second_page.dart';
-import 'package:test_flutter/page/third_page.dart';
+import 'package:test_flutter/page/PersonalCenter.dart';
 import 'package:toast/toast.dart';
 // flutter packages get
 
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         children: <Widget>[
           new first_page(),
           new second_page(),
-          new third_page()
+          new PersonalCenter()
         ],
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),
@@ -158,34 +158,33 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       _saved.add(WordPair.random());
       _saved.add(WordPair.random());
     }
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        // Add 20 lines from here...
-        builder: (BuildContext context) {
-          final Iterable<ListTile> tiles = _saved.map(
-            (WordPair pair) {
-              return ListTile(
-                title: Text(
-                  pair.asPascalCase,
-                  style: TextStyle(fontSize: 18.0),
+    var materialPageRoute = MaterialPageRoute<void>(
+            // Add 20 lines from here...
+            builder: (BuildContext context) {
+              final Iterable<ListTile> tiles = _saved.map(
+                (WordPair pair) {
+                  return ListTile(
+                    title: Text(
+                      pair.asPascalCase,
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                  );
+                },
+              );
+              final List<Widget> divided = ListTile.divideTiles(
+                context: context,
+                tiles: tiles,
+              ).toList();
+    
+              return Scaffold(
+                // Add 6 lines from here...
+                appBar: AppBar(
+                  title: Text('Saved Suggestions'),
                 ),
+                body: ListView(children: divided),
               );
             },
           );
-          final List<Widget> divided = ListTile.divideTiles(
-            context: context,
-            tiles: tiles,
-          ).toList();
-
-          return Scaffold(
-            // Add 6 lines from here...
-            appBar: AppBar(
-              title: Text('Saved Suggestions'),
-            ),
-            body: ListView(children: divided),
-          );
-        },
-      ), // ... to here.
-    );
+        Navigator.of(context).push( materialPageRoute);
   }
 }

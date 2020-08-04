@@ -4,70 +4,109 @@ import 'package:english_words/english_words.dart';
 import 'package:test_flutter/classes/Point.dart';
 import 'package:test_flutter/myfuncation.dart';
 import 'package:toast/toast.dart';
+import 'package:test_flutter/http/API.dart';
+import 'dart:async';
 
 class first_page extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // return Container(
+    // );
+    return new RandomWords();
+  }
+
   var devices = ['sanumang'];
   int _counter = 0;
+  var api = API();
+  var text = "";
+}
+
+class RandomWords extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new RandomWordsState2();
+  }
+}
+
+class RandomWordsState2 extends State<StatefulWidget> {
+  var devices = ['sanumang'];
+  int _counter = 0;
+  var api = API();
+  var text = "";
+
+  Future<String> getMyText() async {
+    // Future(() => {
+    //   print('立刻在Event queue中运行的Future')
+    //     return "yyyyyy"}
+    // );
+    // return Future("bar").then((value) => print('foo X $value'));
+    var value2 = "";
+    await api.getMovieDetail("26266893", (value) {
+      print("getMovieDetail");
+      print(value);
+      text = value.toString();
+      value2 = value.toString();
+      setState(() {
+        this.text = value2;
+      });
+    });
+    return value2;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     appBar: AppBar(
-      title: Builder(
-      builder: (BuildContext context) {
-        return GestureDetector( onTap: (){
-           Toast.show("xxxx", context, duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
-        },child:Row(
-              children: <Widget>[
-                Text('杭州'),
-                Icon(Icons.expand_more),
-              ],
-            ));   
-      },
-    
-  ),
-      automaticallyImplyLeading: true,
- 
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.add_alert),
-          tooltip: 'Show Snackbar',
-          onPressed: () {
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.navigate_next),
-          tooltip: 'Next page',
-          onPressed: () {
-          },
-        ),
-        IconButton(
-          icon: const Icon(Icons.navigate_next),
-          tooltip: 'Next page',
-          onPressed: () {
-          },
-        ),
-      ],
-    ),
-      body: Center(
+    getMyText().then((value) => {
+          print("getMyText"),
+          print(value),
+        });
+
+    return new Scaffold(
+        // appBar: AppBar(
+        //   title: Builder(
+        //     builder: (BuildContext context) {
+        //       return GestureDetector(
+        //           onTap: () {
+        //             Toast.show("xxxx", context,
+        //                 duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+        //           },
+        //           child: Row(
+        //             children: <Widget>[
+        //               Text('杭州'),
+        //               Icon(Icons.expand_more),
+        //             ],
+        //           ));
+        //     },
+        //   ),
+        //   automaticallyImplyLeading: true,
+        //   actions: <Widget>[
+        //     IconButton(
+        //       icon: const Icon(Icons.add_alert),
+        //       tooltip: 'Show Snackbar',
+        //       onPressed: () {},
+        //     ),
+        //     IconButton(
+        //       icon: const Icon(Icons.navigate_next),
+        //       tooltip: 'Next page',
+        //       onPressed: () {},
+        //     ),
+        //     IconButton(
+        //       icon: const Icon(Icons.navigate_next),
+        //       tooltip: 'Next page',
+        //       onPressed: () {},
+        //     ),
+        //   ],
+        // ),
+        body: SingleChildScrollView(
+      child: Center(
         child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            // RandomWordsState()._buildSuggestions(),
+            Text(
+              this.text,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18, color: Colors.blue),
+            ),
             Text(
               "test_method->" +
                   ' isNoble=>${isNoble(1)} \n isBig=>${isBig()} ' +
@@ -87,6 +126,6 @@ class first_page extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

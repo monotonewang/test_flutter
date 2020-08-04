@@ -6,15 +6,24 @@ import 'package:test_flutter/page/first_page.dart';
 import 'package:test_flutter/page/second_page.dart';
 import 'package:test_flutter/page/PersonalCenter.dart';
 import 'package:toast/toast.dart';
+import 'dart:io';
+import 'package:flutter/services.dart';
+
 // flutter packages get
 
 //声明list
 List<String> list = ['sanumang'];
 
+void main() {
+  runApp(MyApp());
+  // if(Platform.isAndroid) {
+  // //设置Android头部的导航栏透明
+  // SystemUiOverlayStyle systemUiOverlayStyle =
+  //     SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  // SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  // }
 
-void main() => runApp(MyApp());
-
-
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -159,32 +168,32 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       _saved.add(WordPair.random());
     }
     var materialPageRoute = MaterialPageRoute<void>(
-            // Add 20 lines from here...
-            builder: (BuildContext context) {
-              final Iterable<ListTile> tiles = _saved.map(
-                (WordPair pair) {
-                  return ListTile(
-                    title: Text(
-                      pair.asPascalCase,
-                      style: TextStyle(fontSize: 18.0),
-                    ),
-                  );
-                },
-              );
-              final List<Widget> divided = ListTile.divideTiles(
-                context: context,
-                tiles: tiles,
-              ).toList();
-    
-              return Scaffold(
-                // Add 6 lines from here...
-                appBar: AppBar(
-                  title: Text('Saved Suggestions'),
-                ),
-                body: ListView(children: divided),
-              );
-            },
-          );
-        Navigator.of(context).push( materialPageRoute);
+      // Add 20 lines from here...
+      builder: (BuildContext context) {
+        final Iterable<ListTile> tiles = _saved.map(
+          (WordPair pair) {
+            return ListTile(
+              title: Text(
+                pair.asPascalCase,
+                style: TextStyle(fontSize: 18.0),
+              ),
+            );
+          },
+        );
+        final List<Widget> divided = ListTile.divideTiles(
+          context: context,
+          tiles: tiles,
+        ).toList();
+
+        return Scaffold(
+          // Add 6 lines from here...
+          appBar: AppBar(
+            title: Text('Saved Suggestions'),
+          ),
+          body: ListView(children: divided),
+        );
+      },
+    );
+    Navigator.of(context).push(materialPageRoute);
   }
 }

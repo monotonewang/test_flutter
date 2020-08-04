@@ -11,7 +11,6 @@ final _biggerFont = const TextStyle(fontSize: 18.0);
 class second_page extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return RandomWords();
   }
 }
@@ -19,7 +18,6 @@ class second_page extends StatelessWidget{
 class RandomWords extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new RandomWordsState();
   }
 }
@@ -42,7 +40,15 @@ class RandomWordsState extends State<RandomWords> {
     // for(int i=0;i<200;i++){
     //   _suggestion.add(WordPair.random());
     // }
-    return ListView.builder(
+    return  NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return <Widget>[
+          SliverAppBar(
+            title: Text('Text'),
+          )
+        ];
+      },
+      body:ListView.builder(
       padding: const EdgeInsets.all(16.0),
       itemBuilder: (context, i) {
         if (i.isOdd) return Divider();
@@ -52,7 +58,7 @@ class RandomWordsState extends State<RandomWords> {
         }
         return _buildRow(_suggestion[index]);
       },
-    );
+    ));
   }
 
   // _onListTap(bool alreadySaved, WordPair pair) {

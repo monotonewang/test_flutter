@@ -7,6 +7,8 @@ description: A new Flutter project.
 # Both the version and the builder number may be overridden in flutter
 # build by specifying --build-name and --build-number, respectively.
 # Read more about versioning at semver.org.
+# https://github.com/flutterchina/dio
+
 version: 1.0.0+1
 
 environment:
@@ -14,6 +16,8 @@ environment:
 
 dependencies:
   http: 0.12.2
+  dio: 3.0.10
+  flutter_swiper : 1.1.6
   flutter:
     sdk: flutter
 

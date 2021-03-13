@@ -5,7 +5,11 @@ import 'package:toast/toast.dart';
 class PersonalCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+      appBar:AppBar(
+        title:Text("个人中心")
+      ),
+      body: Column(
       children: <Widget>[
         Container(
           margin: EdgeInsets.fromLTRB(16, 9, 16, 9),
@@ -34,7 +38,7 @@ class PersonalCenter extends StatelessWidget {
                       backgroundColor: Colors.blue, fontSize: 20))),
         )
       ],
-    );
+    ));
   }
 
   login(BuildContext context) {

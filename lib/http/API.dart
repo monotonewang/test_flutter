@@ -39,7 +39,7 @@ class API {
   ///影人条目信息
   static const String CELEBRITY = '/v2/movie/celebrity/';
 
-  static const String REIVIEWS = '/v2/movie/subject/26266893/reviews';
+  // static const String REIVIEWS = '/v2/movie/subject/26266893/reviews';
 
   var _request = HttpRequest(API.BASE_URL);
 

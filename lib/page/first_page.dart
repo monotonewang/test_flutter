@@ -70,10 +70,10 @@ class RandomWordsState2 extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    getMyText().then((value) => {
+    // getMyText().then((value) => {
           // print("getMyText"),
           // print(value),
-    });
+    // });
 
     jump(){
       Navigator.push(context, MaterialPageRoute(builder: (context) {

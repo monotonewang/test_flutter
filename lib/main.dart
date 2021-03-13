@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:test_flutter/myfuncation.dart';
 import 'package:test_flutter/my_app.dart';
@@ -10,15 +12,16 @@ import 'package:flutter/services.dart';
 List<String> list = ['sanumang'];
 
 void main() {
-   //强制横屏
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+  WidgetsFlutterBinding.ensureInitialized();
+  //强制横屏
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
   runApp(MyApp());
-  // if(Platform.isAndroid) {
-  // //设置Android头部的导航栏透明
-  // SystemUiOverlayStyle systemUiOverlayStyle =
-  //     SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-  // SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-  // }
+  if(Platform.isAndroid) {
+  //设置Android头部的导航栏透明
+  SystemUiOverlayStyle systemUiOverlayStyle =
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
 
 }
 
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo+${isNoble(1)}',
       // 右上角显示一个debug的图标
-      debugShowCheckedModeBanner: false,
+      // debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //

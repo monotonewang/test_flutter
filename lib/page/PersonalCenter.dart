@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
+import 'package:test_flutter/page/container_text.dart';
 
 class PersonalCenter extends StatelessWidget {
   @override
@@ -43,7 +44,10 @@ class PersonalCenter extends StatelessWidget {
 
   login(BuildContext context) {
     print("i am on tap");
-    Toast.show("xxxxxxxxxx", context,
-        duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+     Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ContainerText();
+      }));
+    // Toast.show("xxxxxxxxxx", context,
+        // duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
   }
 }

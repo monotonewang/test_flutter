@@ -90,6 +90,7 @@ class RandomWordsState extends State<RandomWords> {
       //   pair.asPascalCase,
       //   style: _biggerFont,
       // ),
+      subtitle: Text("This is commment=$text"),
       trailing: GestureDetector(
         onTap: () {
           print(" onTap=>alreadySaved=$alreadySaved");

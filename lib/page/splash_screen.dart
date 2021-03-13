@@ -45,8 +45,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>{
    void goToHomePage(BuildContext context) async {
     //  Future.delayed(Duration(milliseconds: 1000), () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-              // return MyHomePage();
-              return ContainerImage();
+              return MyHomePage();
+              // return ContainerImage();
             }));
       // });
           

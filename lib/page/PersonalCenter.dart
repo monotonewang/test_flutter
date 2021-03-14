@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_flutter/page/list/list_page.dart';
 import 'package:toast/toast.dart';
 import 'package:test_flutter/page/container_text.dart';
 import 'package:test_flutter/page/login.dart';
+
+import 'list/list_page2.dart';
 
 class PersonalCenter extends StatelessWidget {
   @override
@@ -59,7 +62,10 @@ class PersonalCenter extends StatelessWidget {
   login(BuildContext context) {
     print("i am on tap");
      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return ContainerText();
+        // return ContainerText();
+        // return ListPage();
+        return ListPage2();
+
       }));
     // Toast.show("xxxxxxxxxx", context,
         // duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);

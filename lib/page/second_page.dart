@@ -49,14 +49,14 @@ class RandomWordsState extends State<RandomWords> {
         ];
       },
       body:ListView.builder(
-      padding: const EdgeInsets.all(16.0),
-      itemBuilder: (context, i) {
-        if (i.isOdd) return Divider();
-        final index = i ~/ 2;
-        if (index >= _suggestion.length) {
-          _suggestion.addAll(generateWordPairs().take(10));
-        }
-        return _buildRow(_suggestion[index]);
+        padding: const EdgeInsets.all(16.0),
+        itemBuilder: (context, i) {
+          if (i.isOdd) return Divider();
+          final index = i ~/ 2;
+          if (index >= _suggestion.length) {
+            _suggestion.addAll(generateWordPairs().take(10));
+          }
+          return _buildRow(_suggestion[index]);
       },
     ));
   }

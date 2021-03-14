@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       this._currentIndex = index;
       _controller.index = index;
 
-      print("xxxxxx" + index.toString());
+      // print("xxxxxx" + index.toString());
       // final scaffold = Scaffold.of(context);
       // scaffold.showSnackBar(SnackBar(
       //   content: Text("xx" + this._selectedIndex.toString()),

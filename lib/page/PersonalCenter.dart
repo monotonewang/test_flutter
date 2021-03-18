@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_flutter/page/list/grid_view_page.dart';
 import 'package:test_flutter/page/list/list_page.dart';
 import 'package:toast/toast.dart';
 import 'package:test_flutter/page/container_text.dart';
 import 'package:test_flutter/page/login.dart';
 
+import 'list/grid_view_page_builder.dart';
 import 'list/list_page2.dart';
 
 class PersonalCenter extends StatelessWidget {
@@ -64,7 +66,9 @@ class PersonalCenter extends StatelessWidget {
      Navigator.push(context, MaterialPageRoute(builder: (context) {
         // return ContainerText();
         // return ListPage();
-        return ListPage2();
+        // return ListPage2();
+        // return GridViewPage();
+        return GridViewBuilderPage();
 
       }));
     // Toast.show("xxxxxxxxxx", context,

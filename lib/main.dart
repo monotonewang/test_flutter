@@ -115,7 +115,6 @@
 //   }
 // }
 
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -151,6 +150,7 @@ class MyApp extends StatelessWidget {
       // 右上角显示一个debug的图标
       // debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        backgroundColor: Colors.white,
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the

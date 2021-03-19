@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/skip_down_time_progress.dart';
 import 'package:test_flutter/utils/utils.dart';
 import 'package:test_flutter/my_app.dart';
-import 'package:test_flutter/page/container_image.dart';
 
 class SplashScreenPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    // throw UnimplementedError();
     return _SplashScreenPageState();
   }
 
@@ -46,7 +43,6 @@ class _SplashScreenPageState extends State<SplashScreenPage>{
     //  Future.delayed(Duration(milliseconds: 1000), () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
               return MyHomePage();
-              // return ContainerImage();
             }));
       // });
           

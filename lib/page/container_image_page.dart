@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/utils/utils.dart';
 
-class ContainerImage extends StatelessWidget{
+class ContainerImagePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 

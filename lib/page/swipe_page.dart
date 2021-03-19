@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-class College extends StatelessWidget{
+class SwipePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Swiper(

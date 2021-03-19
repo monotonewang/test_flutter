@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/utils/utils.dart';
 
-class ContainerText extends StatelessWidget{
+class ContainerTextPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

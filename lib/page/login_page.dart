@@ -8,7 +8,7 @@ import 'package:test_flutter/page/sing_out.dart';
 import 'package:test_flutter/ui/button.dart';
 import 'package:test_flutter/ui/gradual_change_view.dart';
 
-class Login extends StatefulWidget{
+class LoginPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
 
@@ -17,7 +17,7 @@ class Login extends StatefulWidget{
 
 }
 
-class _LoginState extends State<Login>{
+class _LoginState extends State<LoginPage>{
 
   PageController _controller;
   PageView _pageView;

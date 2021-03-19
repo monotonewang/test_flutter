@@ -7,8 +7,6 @@ import 'package:test_flutter/myfuncation.dart';
 import 'package:toast/toast.dart';
 import 'package:test_flutter/http/API.dart';
 import 'dart:async';
-import 'package:test_flutter/page/splash_screen.dart';
-import 'package:test_flutter/page/college.dart';
 
 class first_page extends StatelessWidget {
   @override
@@ -27,7 +25,6 @@ class first_page extends StatelessWidget {
 class RandomWords extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new RandomWordsState2();
   }
 }
@@ -76,9 +73,9 @@ class RandomWordsState2 extends State<StatefulWidget> {
     // });
 
     jump(){
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return College();
-      }));
+      // Navigator.push(context, MaterialPageRoute(builder: (context) {
+      //   return College();
+      // }));
     }
     return new Scaffold(
         appBar: AppBar(

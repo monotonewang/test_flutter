@@ -1,4 +1,4 @@
-import 'package:test_flutter/classes/Point.dart';
+import 'package:flutter_mirror/classes/Point.dart';
 
 class TinyPoint extends Point{
 

@@ -1,11 +1,10 @@
 // int
 
-// Integer values no larger than 64 bits, 
-// depending on the platform. On the Dart VM, 
-// values can be from -263 to 263 - 1. 
-// Dart that’s compiled to JavaScript uses JavaScript numbers, 
+// Integer values no larger than 64 bits,
+// depending on the platform. On the Dart VM,
+// values can be from -263 to 263 - 1.
+// Dart that’s compiled to JavaScript uses JavaScript numbers,
 // allowing values from -253 to 253 - 1.
-
 
 var x = 1;
 var hex = 0xDEADBEEF;
@@ -16,22 +15,21 @@ var exponents = 1.42e5;
 double z = 1; // Equivalent to double z = 1.0.
 
 // string ->int int本质是一个类
-var one =int.parse('1');
+var one = int.parse('1');
 //string-> double
-var onePointOne=double.parse('1.1');
+var onePointOne = double.parse('1.1');
 // int->string
-String oneString=one.toString();
+String oneString = one.toString();
 // double->string
-double onePointDouble=onePointOne.toDouble();
+double onePointDouble = onePointOne.toDouble();
 
 // 保留两位小数
-double pi=3.1415926;
-  String piAsString=pi.toStringAsFixed(2);
-  String piAsStringE=pi.toStringAsExponential(2); //科学计数法
-  String piAsStringP=pi.toStringAsPrecision(2);
+double pi = 3.1415926;
+String piAsString = pi.toStringAsFixed(2);
+String piAsStringE = pi.toStringAsExponential(2); //科学计数法
+String piAsStringP = pi.toStringAsPrecision(2);
 
-
-void print_one(){
+void print_one() {
   print(one);
 }
 

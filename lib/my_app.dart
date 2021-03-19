@@ -2,13 +2,13 @@
 
 
 import 'package:flutter/cupertino.dart';
-import 'package:test_flutter/myfuncation.dart';
+import 'package:flutter_mirror/my_funcation.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:test_flutter/page/home_child_page.dart';
-import 'package:test_flutter/page/second_page.dart';
-import 'package:test_flutter/page/personal_centers.dart';
-import 'package:test_flutter/page/splash_screen.dart';
+import 'package:flutter_mirror/page/home_child_page.dart';
+import 'package:flutter_mirror/page/second_page.dart';
+import 'package:flutter_mirror/page/personal_centers.dart';
+import 'package:flutter_mirror/page/splash_screen.dart';
 
 class MyApp extends StatelessWidget{
 

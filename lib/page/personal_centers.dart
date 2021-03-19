@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_flutter/page/list/grid_view_page.dart';
-import 'package:test_flutter/page/list/list_page.dart';
+import 'package:flutter_mirror/page/list/grid_view_page.dart';
+import 'package:flutter_mirror/page/list/list_page.dart';
 import 'package:toast/toast.dart';
-import 'package:test_flutter/page/container_text_page.dart';
-import 'package:test_flutter/page/login_page.dart';
+import 'package:flutter_mirror/page/container_text_page.dart';
+import 'package:flutter_mirror/page/login_page.dart';
 
 import 'demo/demo_page.dart';
 import 'list/grid_view_page_builder.dart';

@@ -1,13 +1,8 @@
-
-
-
 import 'package:flutter/material.dart';
 
-class SignIn extends StatelessWidget{
+class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Text("singIn");
   }
-
 }

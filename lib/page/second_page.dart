@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:test_flutter/classes/Point.dart';
-import 'package:test_flutter/myfuncation.dart';
+import 'package:flutter_mirror/classes/Point.dart';
+import 'package:flutter_mirror/my_funcation.dart';
 import 'package:toast/toast.dart';
 
 Set<WordPair> _saved = Set<WordPair>();

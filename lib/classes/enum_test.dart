@@ -1,1 +1,1 @@
-enum Color{red,blue,green}
+enum Color { red, blue, green }

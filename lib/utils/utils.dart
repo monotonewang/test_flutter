@@ -4,6 +4,7 @@ import 'dart:ui' as ui show window;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 // import 'package:flutter_app/bean/music.dart';
 // import 'package:palette_generator/palette_generator.dart';
 // import 'package:url_launcher/url_launcher.dart';
@@ -303,7 +304,6 @@ class Utils {
     return byteData;
   }
 
- 
   /// 取[fractionDigits]位小数 不要四舍五入
   ///
   /// [num] 原始数据

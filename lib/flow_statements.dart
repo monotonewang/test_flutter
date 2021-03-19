@@ -1,6 +1,5 @@
-
 // 增强 for循环
-printFor(){
+printFor() {
   var collection = [0, 1, 2];
   for (var x in collection) {
     print(x); // 0 1 2
@@ -8,7 +7,7 @@ printFor(){
 }
 
 // If you really want fall-through, you can use a continue statement and a label:
-printSwitch(){
+printSwitch() {
   var command = 'CLOSED';
   switch (command) {
     case 'CLOSED':
@@ -22,5 +21,4 @@ printSwitch(){
       // executeNowClosed();
       break;
   }
-
 }

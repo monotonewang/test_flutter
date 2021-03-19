@@ -1,7 +1,7 @@
 library annoation_test;
 
 // 自定义注解
-class TODO{
+class TODO {
   final String who;
   final String what;
 

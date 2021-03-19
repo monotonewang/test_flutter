@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:test_flutter/classes/Point.dart';
-import 'package:test_flutter/myfuncation.dart';
+import 'package:flutter_mirror/classes/Point.dart';
+import 'package:flutter_mirror/my_funcation.dart';
 import 'package:toast/toast.dart';
-import 'package:test_flutter/http/API.dart';
+import 'package:flutter_mirror/http/API.dart';
 import 'dart:async';
 
 class HomeChildPage extends StatelessWidget {

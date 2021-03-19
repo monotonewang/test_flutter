@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/skip_down_time_progress.dart';
-import 'package:test_flutter/utils/utils.dart';
-import 'package:test_flutter/my_app.dart';
+import 'package:flutter_mirror/skip_down_time_progress.dart';
+import 'package:flutter_mirror/utils/utils.dart';
+import 'package:flutter_mirror/my_app.dart';
 
 class SplashScreenPage extends StatefulWidget{
   @override

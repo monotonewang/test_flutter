@@ -1,24 +1,24 @@
-var list=[1,2,3];
+var list = [1, 2, 3];
 
-var const_list=const[1,2,3];
+var const_list = const [1, 2, 3];
 
 // Sets
 // A set in Dart is an unordered collection of unique items
 var halogens = {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
 
 var elements = <String>{};
-Set<String> names={};
+Set<String> names = {};
 
-void addSets(var elements,var halogens){
+void addSets(var elements, var halogens) {
   elements.add('fluorine');
   elements.addAll(halogens);
 }
 
-void printSets(var elements){
-      print(elements);
+void printSets(var elements) {
+  print(elements);
 }
 
-void removeSets(var elements){
+void removeSets(var elements) {
   elements.remove(1);
 }
 
@@ -32,37 +32,36 @@ var gifts = {
   'fifth': 'golden rings'
 };
 
-Map<int,String> constantMap = const {
+Map<int, String> constantMap = const {
   2: 'helium',
   10: 'neon',
   18: 'argon',
 };
 
+var linkedMap = Map.from(gifts);
 
-var linkedMap=Map.from(gifts);
-
-void addMap(var gifts){
+void addMap(var gifts) {
   gifts['fourth'] = 'calling birds'; // Add a key-value pair
 }
 
 /**
  * 打印Maps
  */
-void printMap(var gifts){
+void printMap(var gifts) {
   print(gifts);
 }
 
 /**
  * 删除map元素
  */
-void removeMap(Map maps){
+void removeMap(Map maps) {
   maps.remove("first");
 }
 
 //Runes
 // In Dart, runes are the UTF-32 code points of a string.
 
-void testRunes(){
+void testRunes() {
   var clapping = '\u{1f44f}';
   print(clapping);
   print(clapping.codeUnits);
@@ -73,4 +72,3 @@ void testRunes(){
   print(new String.fromCharCodes(input));
 }
 // Symbols
-

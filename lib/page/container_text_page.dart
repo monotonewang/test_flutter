@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:test_flutter/utils/utils.dart';
+import 'package:flutter_mirror/utils/utils.dart';
 
 class ContainerTextPage extends StatelessWidget{
   @override

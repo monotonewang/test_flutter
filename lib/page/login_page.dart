@@ -2,11 +2,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:test_flutter/enum/enum.dart';
-import 'package:test_flutter/page/sign_in.dart';
-import 'package:test_flutter/page/sing_out.dart';
-import 'package:test_flutter/ui/button.dart';
-import 'package:test_flutter/ui/gradual_change_view.dart';
+import 'package:flutter_mirror/enum/enum.dart';
+import 'package:flutter_mirror/page/sign_in.dart';
+import 'package:flutter_mirror/page/sing_out.dart';
+import 'package:flutter_mirror/ui/button.dart';
+import 'package:flutter_mirror/ui/gradual_change_view.dart';
 
 class LoginPage extends StatefulWidget{
   @override

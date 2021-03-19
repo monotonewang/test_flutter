@@ -1,5 +1,4 @@
 class SubjectEntity {
-
 //  "subject":Object{...},
 //  "rank":1,
 //  "delta":0
@@ -8,7 +7,7 @@ class SubjectEntity {
   var rank;
   var delta;
 
-  SubjectEntity.fromMap(Map<String, dynamic> map){
+  SubjectEntity.fromMap(Map<String, dynamic> map) {
     rank = map['rank'];
     delta = map['delta'];
     var subjectMap = map['subject'];
@@ -59,9 +58,8 @@ class Subject {
   }
 
   _converCasts(casts) {
-    return casts.map<Cast>((item)=>Cast.fromMap(item)).toList();
+    return casts.map<Cast>((item) => Cast.fromMap(item)).toList();
   }
-
 }
 
 class Images {
@@ -75,10 +73,9 @@ class Images {
 class Rating {
   var average;
   var max;
+
   Rating(this.average, this.max);
 }
-
-
 
 class Cast {
   var id;
@@ -86,6 +83,7 @@ class Cast {
   var name;
   Avatar avatars;
   var alt;
+
   Cast(this.avatars, this.name_en, this.name, this.alt, this.id);
 
   Cast.fromMap(Map<String, dynamic> map) {
@@ -94,12 +92,11 @@ class Cast {
     name = map['name'];
     alt = map['alt'];
     var tmp = map['avatars'];
-    if(tmp == null){
+    if (tmp == null) {
       avatars = null;
-    }else{
+    } else {
       avatars = Avatar(tmp['small'], tmp['large'], tmp['medium']);
     }
-
   }
 }
 
@@ -107,5 +104,6 @@ class Avatar {
   var medium;
   var large;
   var small;
+
   Avatar(this.small, this.large, this.medium);
 }

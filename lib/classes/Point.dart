@@ -27,6 +27,7 @@ class Point {
 
   // Constant constructors
   static Point pointx = Point(1, 2);
+
   // 也可以使用 不过 这里 的 x和 y都需要声明成 final
   //  static final Point pointx= const Point(1,2);
 
@@ -36,10 +37,10 @@ class Point {
 // Redirecting constructors
   Point.alongXAxis(num x) : this(x, 0);
 
-/**
- * Named constructors
- * 命名构造函数：特征不可继承
- */
+  /**
+   * Named constructors
+   * 命名构造函数：特征不可继承
+   */
 // 第一种写法
   // Point.fromJson(Map map){
   //   this.x=map['x'];
@@ -70,9 +71,9 @@ class Point {
     return new Point(1, 2).runtimeType;
   }
 
-/**
- * 定义一个 方法
- */
+  /**
+   * 定义一个 方法
+   */
   num distanceTo(Point other) {
     var dx = x - other.x;
     var dy = y - other.y;
@@ -85,9 +86,9 @@ class Point {
         '${invocation.memberName}');
   }
 
-/**
- * Metadata
- */
+  /**
+   * Metadata
+   */
   @TODO("xiaowang", "errorCode")
   @deprecated
   static num getPoint() {

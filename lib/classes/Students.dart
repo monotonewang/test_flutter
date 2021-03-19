@@ -1,4 +1,4 @@
-import 'package:test_flutter/classes/Persons.dart';
+import 'package:flutter_mirror/classes/Persons.dart';
 
 class Students implements Person{
   

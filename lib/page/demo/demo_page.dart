@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/page/container_image_page.dart';
 import 'package:test_flutter/page/container_text_page.dart';
+import 'package:test_flutter/page/layout/dialog_page.dart';
 import 'package:test_flutter/page/list/grid_view_page.dart';
 import 'package:test_flutter/page/list/grid_view_page_builder.dart';
 import 'package:test_flutter/page/list/list_page.dart';
@@ -28,9 +29,9 @@ class DemoPage extends StatelessWidget{
     ); 
 }
 
-List<String> list = ['ListView','ListViewBuilder','GridView','GridViewBuilder','Login','Image','Swipe','Text'];
+List<String> list = ['ListView','ListViewBuilder','GridView','GridViewBuilder','Login','Image','Swipe','Text','Dialog'];
 
-List<Widget> Boxs(BuildContext context) => List.generate(8, (index) {
+List<Widget> Boxs(BuildContext context) => List.generate(list.length, (index) {
     return Container(
             decoration: BoxDecoration(
                 border: Border.all(
@@ -98,6 +99,11 @@ List<Widget> Boxs(BuildContext context) => List.generate(8, (index) {
         case 7:
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return ContainerTextPage();
+          }));
+          break;
+        case 8://Dialog
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return DialogPage();
           }));
           break;
       }

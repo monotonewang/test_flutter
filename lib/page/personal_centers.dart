@@ -10,7 +10,7 @@ import 'demo/demo_page.dart';
 import 'list/grid_view_page_builder.dart';
 import 'list/list_page2.dart';
 
-class PersonalCenter extends StatelessWidget {
+class PersonalCenterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

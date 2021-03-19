@@ -8,7 +8,7 @@ import 'package:toast/toast.dart';
 import 'package:test_flutter/http/API.dart';
 import 'dart:async';
 
-class first_page extends StatelessWidget {
+class HomeChildPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // return Container(

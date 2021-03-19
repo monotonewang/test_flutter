@@ -5,9 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:test_flutter/myfuncation.dart';
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:test_flutter/page/first_page.dart';
+import 'package:test_flutter/page/home_child_page.dart';
 import 'package:test_flutter/page/second_page.dart';
-import 'package:test_flutter/page/PersonalCenter.dart';
+import 'package:test_flutter/page/personal_centers.dart';
 import 'package:test_flutter/page/splash_screen.dart';
 
 class MyApp extends StatelessWidget{
@@ -89,9 +89,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
       body: new TabBarView(
         children: <Widget>[
-          new first_page(),
+          new HomeChildPage(),
           new second_page(),
-          new PersonalCenter()
+          new PersonalCenterPage()
         ],
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),

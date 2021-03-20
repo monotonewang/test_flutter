@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mirror/page/container_image_page.dart';
 import 'package:flutter_mirror/page/container_text_page.dart';
+import 'package:flutter_mirror/page/demo/strawberry_official_page.dart';
+import 'package:flutter_mirror/page/layout/aspect_ratio_page.dart';
+import 'package:flutter_mirror/page/layout/card_page.dart';
 import 'package:flutter_mirror/page/layout/dialog_page.dart';
+import 'package:flutter_mirror/page/layout/row_page.dart';
+import 'package:flutter_mirror/page/layout/stack_page.dart';
 import 'package:flutter_mirror/page/list/grid_view_page.dart';
 import 'package:flutter_mirror/page/list/grid_view_page_builder.dart';
 import 'package:flutter_mirror/page/list/list_page.dart';
@@ -35,7 +40,12 @@ class DemoPage extends StatelessWidget {
     'Image',
     'Swipe',
     'Text',
-    'Dialog'
+    'Dialog',
+    'Strawberry',
+    'Row',
+    'Stack',
+    'AspectRatio',
+    'Card'
   ];
 
   List<Widget> Boxs(BuildContext context) =>
@@ -109,6 +119,31 @@ class DemoPage extends StatelessWidget {
       case 8: //Dialog
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return DialogPage();
+        }));
+        break;
+      case 9: //Dialog
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return StrawberryOfficialPage();
+        }));
+        break;
+      case 10: //Dialog
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return RowPage();
+        }));
+        break;
+      case 11: //Dialog
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return StackPage();
+        }));
+        break;
+      case 12: //Dialog
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return AspectRatioPage();
+        }));
+        break;
+      case 13: //Dialog
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return CardPage();
         }));
         break;
     }
